@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="icon" href="img/favicon.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="estilo/login.css" type="text/css"/>
+    <title>Login</title>
+</head>
+<body>
+    <div class="modal-login">
+        <form class="form-signin" id="formulario-login" method="post" action="processa-login.php">
+            <div class="row">
+                <div class="col-12">
+                    <div class="text-center mb-3">
+                        <img class="mb-2 img-fluid" src="img/logotxt.png" alt="Logo">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="form-label-group">
+                        <label for="inputUsuario" class="label-invisivel">Usuario</label>
+                        <input type="usuario" id="inputUsuario" name="usuario" class="form-control" placeholder="Usuário" autofocus>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-12">
+                    <div class="form-label-group">
+                        <label for="inputPassword" class="label-invisivel">Senha</label>
+                        <input type="password" name="senha" id="inputPassword" class="form-control" placeholder="Senha">
+                    </div>
+                </div>
+            </div>
+            <div class="row botoes-login">
+                <div class="col-6">
+                    <button class="btn botoes-login btn-primary btn-block" type="submit">Entrar</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <!-- A ordem de importação importa!, jQuery primeiro, depois Popper.js e por fim Bootstrap JS -->
+    <!-- jQuery 3.3.1 Slim -->
+    <script src="bootstrap/js/jquery-3.2.1.min.js"></script>
+    <script src="bootstrap/js/popper.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>

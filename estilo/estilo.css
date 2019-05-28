@@ -31,7 +31,9 @@ body
 
 .textosBotao
 {
-	color: #01A9DB;
+    font-family: 'ABeeZee';
+    font-size: 1.3em;
+	color: #3b52a6;
 }
 
 
@@ -45,7 +47,7 @@ button
 
 a
 {
-	font-size: 1.5em;
+	font-size: 1em;
 }
 a:hover
 {
@@ -54,7 +56,131 @@ a:hover
 
 nav
 {
-	background: #526ba0;
+	background: #C0C0C0;
+}
+
+form {
+    display: block;
+    margin-top: 0em;
+}
+
+button{
+	margin: 5px;
+	color: #3b52a6;
+}
+
+.formato-input
+{
+	width: 20%;
+	float: right;
+}
+
+.form-control-borderless 
+{
+    border: none;
+}
+
+.form-control-borderless:hover, .form-control-borderless:active, .form-control-borderless:focus {
+    border: none;
+    outline: none;
+    box-shadow: none;
+}
+
+#area-cabecalho {
+	background-color: #C0C0C0;
+	padding: 15px;
+	text-align: center;
+}
+
+#area-logo{
+	padding: 10px; 
+}
+
+
+#area-cabecalho a:link, #area-cabecalho a:visited {
+	color: #3b52a6;
+	padding: 8px 12px;
+}
+
+#area-descricao {
+	margin-top: 30px;
+	padding: 20px;
+	background: #DCDCDC;
+	text-align: center;
+}
+
+#area-formulario {
+	margin-top: 30px;
+	margin-bottom: 30px;
+	padding: 20px;
+	background: #DCDCDC;
+}
+
+#area-titulo h1{
+	text-align: center;
+}
+
+#conteudo{
+	margin-top: 30px;
+	margin-bottom: 30px;
+	float: left;
+	background: #DCDCDC;
+}
+
+#conteudo-principal{
+	padding-top: 20px; 
+	margin-left: 15px;
+	float: left;
+
+}
+
+.formato-texto-sobre
+{
+	font-family: 'ABeeZee', sans-serif;
+	float: left;
+	margin-left: 20px;
+	margin-top: 75px;
+	font-family: 'ABeeZee', sans-serif;
+
+}
+
+.foto-sobre
+{
+	float: left;
+	margin-left: 50px;
+		padding-bottom: 15px;
+}
+
+.texto
+{
+	text-align: justify;
+}
+
+.coluna
+{
+	width: 100px;
+}
+
+.table
+{
+	margin-top: 1%;
+}
+
+.formato-link
+{
+	text-decoration: none;
+	color: white;
+}
+
+a.formato-link:hover
+{
+	text-decoration: none;
+	color: white;
+}
+
+.formato-busca
+{
+	margin-left: 910px;
 }
 
 /*estilo funcionário*/
