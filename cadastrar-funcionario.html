@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="estilo/estilo.css" type="text/css"/>
+        <title>Cadastrar funcionário</title>
+    </head>
+<body>
+    <div class="container">
+        <div id="principal">
+            <h5>Cadastrar Funcionário</h5>
+            <div class="form-group col-md-2"></div>
+            <form class="formulario-produto" method="post" action="processa-produto.php">                
+                <div class="form-row">
+                    <div class="form-group col-md-5 col-xl-10 col-sm-10 col-10 col-lg-5">
+                        <label for="nome">Nome:</label>
+                        <input type="text" class="form-control" name="nome" id="nome" placeholder="">
+                    </div>
+                    <div class="form-group col-md-2"></div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-5 col-xl-10 col-sm-10 col-10 col-lg-5">
+                        <label for="endereco">Endereço:</label>
+                        <input type="text" class="form-control" name="endereco" id="endereco" placeholder="">
+                    </div>
+                    <div class="form-group col-md-2"></div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-5 col-xl-10 col-sm-10 col-10 col-lg-5">
+                        <label for="cargo">Cargo:</label>
+                        <input type="text" class="form-control" name="cargo" id="cargo" placeholder="">
+                    </div>
+                    <div class="form-group col-md-2"></div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-4 col-xl-10 col-sm-9 col-9 col-lg-4">
+                        <label for="salario">Salário:</label>
+                        <input type="text" class="form-control" name="salario" id="salario" placeholder="">
+                    </div>
+                    <div class="form-group col-md-2"></div>
+                </div>
+                <div class="form-group col-md-2"></div>
+                <div class="row">
+                    <div class="col-xl-5" id="cor-botao">
+                        <input class="btn btn-primary" type="submit" value="Salvar">
+                    </div>
+                    <div class="col-xl-1"></div>
+                </div>
+                </form>
+            </div>
+        </div>
+
+</body>
+</html>
