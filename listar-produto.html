@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="estilo/estilo.css" type="text/css"/>
+        <title>Lista produto</title>
+    </head>
+<div class="container">
+    <div class="form-group">
+        <br>
+        <label for="parametroFiltro">Filtro</label>
+        <select class="form-control" id="parametroFiltro" name="filtro">
+                <option value="1">Nome</option>
+                <option value="2">Preço</option>
+                <option value="3">Quantidade</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="busca">Busca</label>
+        <input name="busca" type="text" class="form-control" id="busca" aria-describedby="emailHelp" placeholder="Busca">
+    </div>
+    <div class="col-sm-12">
+            <table class="table table-borderless table-responsive-md">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th class="ordenavel sticky">Nome<img src="img/setaBaixo.png" id="setaNome" ></th>
+                            <th class="sticky">Descrição</th>
+                            <th class="sticky">Preço</th>
+                            <th class="ordenavel sticky">Quantidade<img src="img/setaBaixo.png" id="setaQuantidade" ></th>
+                            <th class="sticky"></th>
+                            <th class="sticky"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Arroz</td>
+                            <td>Tipo2</td>
+                            <td>R$10,00</td>
+                            <td>10</td>
+                            <td>
+                                <a href="">
+                                    <i class="material-icons">delete_outline</i>
+                                </a>
+                            </td>
+                            <td>
+                                <a href="">
+                                        <i class="material-icons">edit</i>
+                                </a>
+                            </td>
+                        </tr>
+                    </tbody>
+            </table>
+
+        
+    </div>
+</div>
