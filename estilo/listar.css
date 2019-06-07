@@ -66,3 +66,7 @@ a.formato-link:hover
 	color: #3b52a6;
 	padding: 8px 12px;
 }
+
+.titulo-listar{
+	text-align: center;
+}

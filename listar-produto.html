@@ -1,60 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
-        <link rel="stylesheet" href="estilo/estilo.css" type="text/css"/>
-        <title>Lista produto</title>
-    </head>
-<div class="container">
-    <div class="form-group">
-        <br>
-        <label for="parametroFiltro">Filtro</label>
-        <select class="form-control" id="parametroFiltro" name="filtro">
-                <option value="1">Nome</option>
-                <option value="2">Preço</option>
-                <option value="3">Quantidade</option>
-        </select>
-    </div>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="estilo/listar.css" type="text/css"/>
+    <title>Lista Produto</title>
+</head>
+<body>
+    <div id="area-cabecalho">
+        <div id="area-logo">
+            <img src="img/gng_gourmet.png" width="130px" height="130px">
+        </div>
 
-    <div class="form-group">
-        <label for="busca">Busca</label>
-        <input name="busca" type="text" class="form-control" id="busca" aria-describedby="emailHelp" placeholder="Busca">
+        <div class="col-xl-12">
+            <ul class="nav justify-content-center">
+                <li class="nav-item">
+                <a class="nav-link active" href="home.html">Home</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Produtos</a>
+                <div class="dropdown-menu">
+                <a class="dropdown-item" href="cadastrar-produto.html">Cadastrar um novo produto</a>
+                <a class="dropdown-item" href="listar-produto.html">Listar produtos</a>
+                </div>
+            </li>
+                <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Funcionários</a>
+                <div class="dropdown-menu">
+                <a class="dropdown-item" href="cadastrar-funcionario.html">Cadastrar um novo funcionário</a>
+                <a class="dropdown-item" href="">Listar funcionários</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Vendas</a>
+                <div class="dropdown-menu">
+                <a class="dropdown-item" href="cadastro-venda.html">Cadastrar uma venda</a>
+                <a class="dropdown-item" href="listar-vendas.html">Listar vendas</a>
+                </div>
+            </li>
+            </ul>            
+        </div>      
     </div>
-    <div class="col-sm-12">
-            <table class="table table-borderless table-responsive-md">
-                    <thead class="thead-dark">
-                        <tr>
-                            <th class="ordenavel sticky">Nome<img src="img/setaBaixo.png" id="setaNome" ></th>
-                            <th class="sticky">Descrição</th>
-                            <th class="sticky">Preço</th>
-                            <th class="ordenavel sticky">Quantidade<img src="img/setaBaixo.png" id="setaQuantidade" ></th>
-                            <th class="sticky"></th>
-                            <th class="sticky"></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Arroz</td>
-                            <td>Tipo2</td>
-                            <td>R$10,00</td>
-                            <td>10</td>
-                           <td>
-                                <a href="">
-                                    <img src="img/editar-icone.png" class="editar">
-                                </a>
-                            </td>
-                            <td>
-                                <a href="">
-                                     <img src="img/deletar-icone.png" id="deletar">
-                                </a>
-                            </td>
-                        </tr>
-                    </tbody>
-            </table>
-
+    <div class="container">
+        <div>
+            <br>
+            <h3 class = "titulo-listar">Produto</h3>
+        </div>
         
+        <div class="col-sm-12">
+                <table class="table table-borderless table-responsive-md">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th>Produto</th>
+                                <th>Funcionário</th>
+                                <th>Preço</th>
+                                <th>Quantidade Vendida</th>
+                                <th class="sticky"></th>
+                                <th class="sticky"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Arroz</td>
+                                <td>Tipo2</td>
+                                <td>R$10,00</td>
+                                <td>10</td>
+                                <td>
+                                    <a href="">
+                                        <img src="img/editar-icone.png" class="editar">
+                                    </a>
+                                </td>
+                                <td>
+                                    <a href="">
+                                        <img src="img/deletar-icone.png" id="deletar">
+                                    </a>
+                                </td>
+                            </tr>
+                        </tbody>
+                </table>        
+        </div>
     </div>
-</div>
+    <script src="bootstrap/js/jquery-3.2.1.min.js"></script>
+    <script src="bootstrap/js/popper.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    </body>
+</html>
