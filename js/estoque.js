@@ -13,14 +13,17 @@ if(sessionStorage.getItem('primeiraExecucao') == null){
 
 function Adicionar(){
     var produto = JSON.stringify({
-        Id : (id + 1),
+        Id : document.getElementById('id').value,
         Nome : document.getElementById('nomeProduto').value,
         DataDeValidade : document.getElementById('dataValidadeProduto').value,
         TaxaImposto : document.getElementById('taxaImpostoProduto').value,
         Quantidade : document.getElementById('quantidade').value,
         Preco :  document.getElementById('preco').value,
         FuncionarioRes : document.getElementById('funcionarioProduto').value
+        
     });
+    console.log(produto);
+    
     listaProdutos.push(produto);
     sessionStorage.setItem("listaProdutos", JSON.stringify(listaProdutos));
     alert("Registro adicionado.");
