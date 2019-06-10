@@ -22,15 +22,15 @@
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Produtos</a>
                 <div class="dropdown-menu">
-                <a class="dropdown-item" href="">Cadastrar um novo produto</a>
-                <a class="dropdown-item" href="">Listar produtos</a>
+                <a class="dropdown-item" href="cadastrar-produto.html">Cadastrar um novo produto</a>
+                <a class="dropdown-item" href="listar-produto.html">Listar produtos</a>
                 </div>
             </li>
                 <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Funcionários</a>
                 <div class="dropdown-menu">
-                <a class="dropdown-item" href="">Cadastrar um novo funcionário</a>
-                <a class="dropdown-item" href="">Listar funcionários</a>
+                <a class="dropdown-item" href="cadastrar-funcionario.html">Cadastrar um novo funcionário</a>
+                <a class="dropdown-item" href="listar-funcionario.html">Listar funcionários</a>
                 </div>
             </li>
             <li class="nav-item dropdown">
@@ -38,6 +38,7 @@
                 <div class="dropdown-menu">
                 <a class="dropdown-item" href="cadastro-venda.html">Cadastrar uma venda</a>
                 <a class="dropdown-item" href="listar-vendas.html">Listar vendas</a>
+                <a class="dropdown-item" href="lucro.html">Lucro</a>
                 </div>
             </li>
             </ul>            
@@ -50,6 +51,13 @@
             <form class="formulario-produto" method="post" action="processa-produto.php">                
                 <div class="form-row">
                     <div class="form-group col-md-5 col-xl-10 col-sm-10 col-10 col-lg-5">
+                        <label for="nome">ID:</label>
+                        <input type="text" class="form-control" name="id" id="id" placeholder="">
+                    </div>
+                    <div class="form-group col-md-2"></div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-5 col-xl-10 col-sm-10 col-10 col-lg-5">
                         <label for="nome">Nome:</label>
                         <input type="text" class="form-control" name="nome" id="nome" placeholder="">
                     </div>
@@ -57,15 +65,15 @@
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-5 col-xl-10 col-sm-10 col-10 col-lg-5">
-                        <label for="descricao">Descrição:</label>
-                        <input type="text" class="form-control" name="descricao" id="descricao" placeholder="">
+                        <label for="descricao">Data de validade:</label>
+                        <input type="text" class="form-control" name="dataDeValidade" id="dataDeValidade" placeholder="">
                     </div>
                     <div class="form-group col-md-2"></div>
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-5 col-xl-10 col-sm-10 col-10 col-lg-5">
-                        <label for="preco">Preço:</label>
-                        <input type="text" class="form-control" name="preco" id="preco" placeholder="">
+                        <label for="preco">Taxa de Imposto:</label>
+                        <input type="text" class="form-control" name="taxaImposto" id="taxaImposto" placeholder="">
                     </div>
                     <div class="form-group col-md-2"></div>
                 </div>
@@ -73,6 +81,13 @@
                     <div class="form-group col-md-4 col-xl-10 col-sm-9 col-9 col-lg-4">
                         <label for="quantidade">Quantidade:</label>
                         <input type="text" class="form-control" name="quantidade" id="quantidade" placeholder="">
+                    </div>
+                    <div class="form-group col-md-2"></div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-5 col-xl-10 col-sm-10 col-10 col-lg-5">
+                        <label for="nome">Preço:</label>
+                        <input type="text" class="form-control" name="preco" id="preco" placeholder="">
                     </div>
                     <div class="form-group col-md-2"></div>
                 </div>
@@ -86,6 +101,8 @@
                 </form>
             </div>
         </div>
-
+        <script src="bootstrap/js/jquery-3.2.1.min.js"></script>
+        <script src="bootstrap/js/popper.min.js"></script>
+        <script src="bootstrap/js/bootstrap.min.js"></script>
 </body>
 </html>
