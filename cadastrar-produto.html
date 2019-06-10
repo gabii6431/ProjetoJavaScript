@@ -59,21 +59,21 @@
                 <div class="form-row">
                     <div class="form-group col-md-5 col-xl-10 col-sm-10 col-10 col-lg-5">
                         <label for="nome">Nome:</label>
-                        <input type="text" class="form-control" name="nome" id="nome" placeholder="">
+                        <input type="text" class="form-control" name="nome" id="nomeProduto" placeholder="">
                     </div>
                     <div class="form-group col-md-2"></div>
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-5 col-xl-10 col-sm-10 col-10 col-lg-5">
                         <label for="descricao">Data de validade:</label>
-                        <input type="text" class="form-control" name="dataDeValidade" id="dataDeValidade" placeholder="">
+                        <input type="text" class="form-control" name="dataDeValidade" id="dataValidadeProduto" placeholder="">
                     </div>
                     <div class="form-group col-md-2"></div>
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-5 col-xl-10 col-sm-10 col-10 col-lg-5">
                         <label for="preco">Taxa de Imposto:</label>
-                        <input type="text" class="form-control" name="taxaImposto" id="taxaImposto" placeholder="">
+                        <input type="text" class="form-control" name="taxaImposto" id="taxaImpostoProduto" placeholder="">
                     </div>
                     <div class="form-group col-md-2"></div>
                 </div>
@@ -95,7 +95,7 @@
                 <div class="form-row">
                     <div class="form-group col-md-5 col-xl-10 col-sm-10 col-10 col-lg-5">
                         <label for="exampleFormControlSelect1">Funcionário</label>
-                            <select class="form-control" id="exampleFormControlSelect1">
+                            <select class="form-control" id="funcionarioProduto">
                                 <option>1</option>
                                 <option>2</option>
                                 <option>3</option>
@@ -108,7 +108,7 @@
                 
                 <div class="row">
                     <div class="col-xl-5" id="cor-botao">
-                        <input class="btn btn-primary" type="submit" value="Salvar">
+                        <input class="btn btn-primary" type="button" value="Salvar" id="salvarProduto">
                     </div>
                     <div class="col-xl-1"></div>
                 </div>
@@ -117,6 +117,7 @@
         </div>
         <script src="bootstrap/js/jquery-3.2.1.min.js"></script>
         <script src="bootstrap/js/popper.min.js"></script>
-        <script src="bootstrap/js/bootstrap.min.js"></script>
+        <script src="bootstrap/js/bootstrap.min.js"></script>  
+        <script src="js/estoque.js"></script>
 </body>
 </html>
