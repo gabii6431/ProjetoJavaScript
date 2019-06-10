@@ -3,7 +3,7 @@ if(sessionStorage.getItem('primeiraExecucao') == null){
     sessionStorage.setItem('primeiraExecucao', false);
     var id = 0;
     var indice_selecionado = -1;
-    var listaProdutos = sessionStorage.getItem("listaProdutos");
+    var listaProdutos = [];
     listaProdutos = JSON.parse(listaProdutos);
     if(listaProdutos == null) {
         listaProdutos = [];
@@ -12,20 +12,28 @@ if(sessionStorage.getItem('primeiraExecucao') == null){
 
 
 function Adicionar(){
-    var produto = JSON.stringify({
-        Id : document.getElementById('id').value,
-        Nome : document.getElementById('nomeProduto').value,
-        DataDeValidade : document.getElementById('dataValidadeProduto').value,
-        TaxaImposto : document.getElementById('taxaImpostoProduto').value,
-        Quantidade : document.getElementById('quantidade').value,
-        Preco :  document.getElementById('preco').value,
-        FuncionarioRes : document.getElementById('funcionarioProduto').value
+    var produto = [];
+    produto.push(document.getElementById('id').value);
+    produto.push(document.getElementById('nomeProduto').value);
+    produto.push(document.getElementById('dataValidadeProduto').value);
+    produto.push(document.getElementById('taxaImpostoProduto').value);  
+    produto.push(document.getElementById('quantidade').value);
+    produto.push(document.getElementById('preco').value);
+    produto.push(document.getElementById('funcionarioProduto').value);
+
+    
+    // Id : document.getElementById('id').value,
+        // Nome : document.getElementById('nomeProduto').value,
+        // DataDeValidade : document.getElementById('dataValidadeProduto').value,
+        // TaxaImposto : document.getElementById('taxaImpostoProduto').value,
+        // Quantidade : document.getElementById('quantidade').value,
+        // Preco :  document.getElementById('preco').value,
+        // FuncionarioRes : document.getElementById('funcionarioProduto').value
         
-    });
     console.log(produto);
     
-    listaProdutos.push(produto);
-    sessionStorage.setItem("listaProdutos", JSON.stringify(listaProdutos));
+    //listaProdutos.push(produto);
+    //sessionStorage.setItem("listaProdutos", JSON.stringify(listaProdutos));
     alert("Registro adicionado.");
     return true;
 }
