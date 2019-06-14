@@ -35,6 +35,7 @@ function Adicionar(){
     //listaProdutos.push(produto);
     //sessionStorage.setItem("listaProdutos", JSON.stringify(listaProdutos));
     alert("Registro adicionado.");
+    console.log(listaProdutos);
     return true;
 }
  
@@ -59,8 +60,12 @@ function Excluir(){
 }
 
 function Listar(){
-    $(".tabelaProduto").html("");
-    $(".tabelaProduto").html(
+    let listaProdutos = sessionStorage.getItem("listaProdutos");
+    let lista =JSON.parse(listaProdutos);
+    
+    console.log("Lista: "+lista);
+    $("#tabelaProduto").html("");
+    $("#tabelaProduto").html(
         "<thead>"+
         "   <tr>"+
         "   <th>Id</th>"+
@@ -76,20 +81,21 @@ function Listar(){
         "</thead>"+
         "<tbody>"+
         "</tbody>"
-        );
-    for(var i in listaProdutos){
-        var produto = JSON.parse(listaProdutos[i]);
-        $(".tabelaProduto tbody").append("<tr>");
-        $(".tabelaProduto tbody").append("<td>"+produto.Id+"</td>");
-        $(".tabelaProduto tbody").append("<td>"+produto.Nome+"</td>");
-        $(".tabelaProduto tbody").append("<td>"+produto.DataDeValidade+"</td>");
-        $(".tabelaProduto tbody").append("<td>"+produto.TaxaImposto+"</td>");
-        $(".tabelaProduto tbody").append("<td>"+produto.Quantidade+"</td>");
-        $(".tabelaProduto tbody").append("<td>"+produto.FuncionarioRes+"</td>");
-        $(".tabelaProduto tbody").append("<td><a href='editar-produto.html'><img src='img/editar.png' alt='"+i+"'  class = 'btnEditar'></a></td>");
-        $(".tabelaProduto tbody").append("<td><a href='editar-produto.html'><img src='img/editar.png' alt='"+i+"' class = 'btnExcluir'></a></td>");
-        $(".tabelaProduto tbody").append("</tr>");
-        
+        )
+    for(var i in lista){
+        var produto = JSON.parse(lista[i]);
+        console.log(produto);
+        $("#tabelaProduto tbody").append("<tr>");
+        $("#tabelaProduto tbody").append("<td style='text-align:center'>"+produto.Id+"</td>");
+        $("#tabelaProduto tbody").append("<td style='text-align:center'>"+produto.Nome+"</td>");
+        $("#tabelaProduto tbody").append("<td style='text-align:center'>"+produto.DataDeValidade+"</td>");
+        $("#tabelaProduto tbody").append("<td style='text-align:center'>"+produto.TaxaImposto+"</td>");
+        $("#tabelaProduto tbody").append("<td style='text-align:center'>"+produto.Quantidade+"</td>");
+        $("#tabelaProduto tbody").append("<td style='text-align:center'>"+produto.Preco+"</td>");
+        $("#tabelaProduto tbody").append("<td style='text-align:center'>"+produto.FuncionarioRes+"</td>");
+        $("#tabelaProduto tbody").append("<td style='text-align:center'><a href='editar-produto.html'><img src='img/editar-icone.png' alt='"+i+"'  class = 'btnEditar'></a></td>");
+        $("#tabelaProduto tbody").append("<td style='text-align:center'><a href=''><img src='img/deletar-icone.png' alt='"+i+"' class = 'btnExcluir'></a></td>");
+        $("#tabelaProduto tbody").append("</tr>");
     }
 }
  
