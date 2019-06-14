@@ -36,6 +36,7 @@ function Adicionar(){
     listaProdutos.push(produto);
     sessionStorage.setItem("listaProdutos", JSON.stringify(listaProdutos));
     alert("Registro adicionado.");
+    console.log(listaProdutos);
     return true;
 }
  
