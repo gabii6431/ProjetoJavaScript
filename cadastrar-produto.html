@@ -51,13 +51,6 @@
             <form class="formulario-produto" method="post" action="processa-produto.php">                
                 <div class="form-row">
                     <div class="form-group col-md-5 col-xl-10 col-sm-10 col-10 col-lg-5">
-                        <label for="nome">Identificação:</label>
-                        <input type="text" class="form-control" name="id" id="id" placeholder="">
-                    </div>
-                    <div class="form-group col-md-2"></div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group col-md-5 col-xl-10 col-sm-10 col-10 col-lg-5">
                         <label for="nome">Nome:</label>
                         <input type="text" class="form-control" name="nome" id="nomeProduto" placeholder="">
                     </div>
@@ -119,5 +112,10 @@
         <script src="bootstrap/js/popper.min.js"></script>
         <script src="bootstrap/js/bootstrap.min.js"></script>  
         <script src="js/estoque.js"></script>
+        <script>
+            $('#salvarProduto').on('click',function(){
+                Adicionar();
+            });
+        </script>
 </body>
 </html>
