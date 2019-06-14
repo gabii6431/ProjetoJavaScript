@@ -1,4 +1,3 @@
-
 $(".tabelaVenda").on("click", ".btnEditar", function(){
     
     indice_selecionado = parseInt($(this).attr("alt"));
@@ -20,6 +19,7 @@ $(".tabelaVenda").on("click", ".btnEditar",function(){
  
 $(".tabelaVenda").on("click", ".btnExcluir",function(){
     indice_selecionado = parseInt($(this).attr("alt"));
+    alert$($(this))
     alert("excluir");
     Excluir();
     Listar();

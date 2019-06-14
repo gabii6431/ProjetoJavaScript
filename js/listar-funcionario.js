@@ -11,6 +11,7 @@ $(".tabelaFuncionario").on("click", ".btnEditar", function(){
     $("#txtCodigo").attr("readonly","readonly");
     $("#txtNome").focus();
 });
+
 $(".tabelaFuncionario").on("click", ".btnEditar",function(){
     alert("editar");
     Listar();
@@ -22,6 +23,7 @@ $(".tabelaFuncionario").on("click", ".btnExcluir",function(){
     Excluir();
     Listar();
 });
+
 $(document).ready(function(){
     Listar();
- });
+});

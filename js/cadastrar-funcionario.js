@@ -32,7 +32,6 @@ function Adicionar(){
     sessionStorage.setItem("idFuncionario", idFuncionario);
     let lista = sessionStorage.getItem("listaFuncionarios");
     let listaFuncionarios = JSON.parse(lista);
-    alert("ENTREIIIIII");
     listaFuncionarios.push(funcionario);
 
     sessionStorage.setItem("listaFuncionarios", JSON.stringify(listaFuncionarios));
@@ -67,7 +66,7 @@ function Listar(){
     let listaFuncionarios = sessionStorage.getItem("listaFuncionarios");
     let lista =JSON.parse(listaFuncionarios);
     
-    console.log("Lista: "+lista);
+    console.log("Lista: " + lista);
     $("#tabelaFuncionario").html("");
     $("#tabelaFuncionario").html(
         "<thead class='thead-dark'>"+
@@ -98,4 +97,3 @@ function Listar(){
         $("#tabelaFuncionario tbody").append("</tr>");
     }
 }
-

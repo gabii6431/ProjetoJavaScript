@@ -12,6 +12,7 @@ $(".tabelaProduto").on("click", ".btnEditar", function(){
     $("#txtCodigo").attr("readonly","readonly");
     $("#txtNome").focus();
 });
+
 $(".tabelaProduto").on("click", ".btnEditar",function(){
     alert("editar");
     Listar();
@@ -23,6 +24,7 @@ $(".tabelaProduto").on("click", ".btnExcluir",function(){
     Excluir();
     Listar();
 });
+
 $(document).ready(function(){
     Listar();
  });
