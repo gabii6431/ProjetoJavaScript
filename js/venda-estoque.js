@@ -2,8 +2,8 @@
 var id;
 var indice_selecionado;
 var listaVendas;
-if(sessionStorage.getItem('primeiraExecucao') == null){
-    sessionStorage.setItem('primeiraExecucao', 'false');
+if(sessionStorage.getItem('primeiraExecucao1') == null){
+    sessionStorage.setItem('primeiraExecucao1', 'false');
     id = 0;
     indice_selecionado = -1;
     listaVendas = sessionStorage.getItem("listaVendas");

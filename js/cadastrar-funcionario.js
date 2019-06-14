@@ -32,9 +32,11 @@ function Adicionar(){
     sessionStorage.setItem("idFuncionario", idFuncionario);
     let lista = sessionStorage.getItem("listaFuncionarios");
     let listaFuncionarios =JSON.parse(lista);
+    alert("ENTREIIIIII");
     listaFuncionarios.push(funcionario);
+
     sessionStorage.setItem("listaFuncionarios", JSON.stringify(listaFuncionarios));
-        alert("ENTREIIIIII");
+        
     alert("Registro adicionado.");
     return true;
 }

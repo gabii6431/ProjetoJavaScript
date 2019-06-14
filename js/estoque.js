@@ -18,7 +18,7 @@ if(sessionStorage.getItem('primeiraExecucao') == null){
 
 
 function Adicionar(){
-    var idProduto = parseInt(sessionStorage.getItem("idProduto"))+ 1 ;
+    var idProduto = parseInt(sessionStorage.getItem("idProduto"))+ 1;
 
     var produto = JSON.stringify({
         Id : idProduto,
