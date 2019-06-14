@@ -2,8 +2,8 @@ var id;
 var indice_selecionado;
 var listaFuncionarios;
 
-if(sessionStorage.getItem('primeiraExecucao') == null){
-    sessionStorage.setItem('primeiraExecucao', 'false');
+if(sessionStorage.getItem('primeiraExecucaoFuncionario') == null){
+    sessionStorage.setItem('primeiraExecucaoFuncionario ', 'false');
     id = 0;
     indice_selecionado = -1;
     listaFuncionarios = sessionStorage.getItem("listaFuncionarios");
@@ -31,7 +31,7 @@ function Adicionar(){
     });
     sessionStorage.setItem("idFuncionario", idFuncionario);
     let lista = sessionStorage.getItem("listaFuncionarios");
-    let listaFuncionarios =JSON.parse(lista);
+    let listaFuncionarios = JSON.parse(lista);
     alert("ENTREIIIIII");
     listaFuncionarios.push(funcionario);
 
@@ -51,7 +51,6 @@ function Editar(){
     sessionStorage.setItem("listaFuncionarios", JSON.stringify(listaFuncionarios));
     let lista = sessionStorage.getItem("listaFuncionarios");
     let listaFuncionarios =JSON.parse(lista);
-
     listaFuncionarios.push(funcionario);
     sessionStorage.setItem("listaFuncionarios", JSON.stringify(listaFuncionarios));
     alert("Informações editadas.")
@@ -86,15 +85,15 @@ function Listar(){
         "</tbody>"
         )
     for(var i in lista){
-        var Funcionario = JSON.parse(lista[i]);
-        console.log(Funcionario);
+        var funcionario = JSON.parse(lista[i]);
+        console.log(funcionario);
         $("#tabelaFuncionario tbody").append("<tr>");
-        $("#tabelaFuncionario tbody").append("<td style='text-align:center'>"+Funcionario.Id+"</td>");
-        $("#tabelaFuncionario tbody").append("<td style='text-align:center'>"+Funcionario.Nome+"</td>");
-        $("#tabelaFuncionario tbody").append("<td style='text-align:center'>"+Funcionario.Endereco+"</td>");
-        $("#tabelaFuncionario tbody").append("<td style='text-align:center'>"+Funcionario.Cargo+"</td>");
-        $("#tabelaFuncionario tbody").append("<td style='text-align:center'>"+Funcionario.Salario+"</td>");
-        $("#tabelaFuncionario tbody").append("<td style='text-align:center'><a href='editar-Funcionario.html'><img src='img/editar-icone.png' alt='"+i+"'  class = 'btnEditar'></a></td>");
+        $("#tabelaFuncionario tbody").append("<td style='text-align:center'>"+funcionario.Id+"</td>");
+        $("#tabelaFuncionario tbody").append("<td style='text-align:center'>"+funcionario.Nome+"</td>");
+        $("#tabelaFuncionario tbody").append("<td style='text-align:center'>"+funcionario.Endereco+"</td>");
+        $("#tabelaFuncionario tbody").append("<td style='text-align:center'>"+funcionario.Cargo+"</td>");
+        $("#tabelaFuncionario tbody").append("<td style='text-align:center'>"+funcionario.Salario+"</td>");
+        $("#tabelaFuncionario tbody").append("<td style='text-align:center'><a href='editar-funcionario.html'><img src='img/editar-icone.png' alt='"+i+"'  class = 'btnEditar'></a></td>");
         $("#tabelaFuncionario tbody").append("<td style='text-align:center'><a href=''><img src='img/deletar-icone.png' alt='"+i+"' class = 'btnExcluir'></a></td>");
         $("#tabelaFuncionario tbody").append("</tr>");
     }

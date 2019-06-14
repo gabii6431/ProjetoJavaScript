@@ -1,6 +1,6 @@
-class Funcionario{
+class Produto{
     id = 0;
-    nome = ""
+    nomeFuncionario = ""
     endereco  = 0
     salario = 0
 
@@ -17,12 +17,12 @@ class Funcionario{
         return sessionStorage.getItem("idFuncionario");
     }
 
-    set nome(nome) {
-        this.nome = nome
-        sessionStorage.setItem("nomeFuncionario", this.nome);
+    set nomeFuncionario(nome) {
+        this.nomenomeFuncionario = nomenomeFuncionario
+        sessionStorage.setItem("nomeFuncionario", this.nomeFuncionario);
     }
 
-    get nome() {
+    get nomeFuncionario() {
         return sessionStorage.getItem("nomeFuncionario");
     }
 

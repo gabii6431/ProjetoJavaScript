@@ -1,4 +1,3 @@
-
 var id;
 var indice_selecionado;
 var listaVendas;
