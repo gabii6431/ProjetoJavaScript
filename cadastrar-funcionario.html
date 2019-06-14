@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -49,7 +49,7 @@
 
         <div id="principal">
             <h5>Cadastrar Funcionário</h5>
-            <form class="formulario-produto" method="post" action="processa-produto.php">
+            <form class="formulario-produto" method="post">
                 
                 <div class="form-row">
                     <div class="form-group col-md-10 col-xl-10 col-sm-10 col-10 col-lg-10">
@@ -84,7 +84,7 @@
 
                     </div>
                     <div class="col-xl-10" id="cor-botao">
-                        <input class="btn btn-primary" type="submit" value="Salvar">
+                        <input class="btn btn-primary" type="submit" value="Salvar" id="salvarFuncionario">
                     </div>
                     <div class="col-xl-1">
 
@@ -96,5 +96,11 @@
     <script src="bootstrap/js/jquery-3.2.1.min.js"></script>
     <script src="bootstrap/js/popper.min.js"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script src="js/cadastrar-funcionario.js"></script>
+    <script>
+        $('#salvarFuncionario').on('click',function(){
+            Adicionar();
+        });
+    </script>
 </body>
 </html>
