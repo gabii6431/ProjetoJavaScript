@@ -60,7 +60,12 @@ function Editar(){
 }
  
 function Excluir(){
-    listaProdutos.splice(indice_selecionado, 1);
+    indexArray = sessionStorage.getItem("indice_selecionado");
+    let lista = sessionStorage.getItem("listaProdutos");
+    let listaProdutos =JSON.parse(lista);
+    listaProdutos.splice(indexArray, 1);
+    alert("Excluido");
+    alert(listaProdutos);
     sessionStorage.setItem("listaProdutos", JSON.stringify(listaProdutos));
     alert("Registro excluído.");
 }
@@ -88,20 +93,23 @@ function Listar(){
         "<tbody>"+
         "</tbody>"
         )
+    let variavel = "";
     for(var i in lista){
         var produto = JSON.parse(lista[i]);
         console.log(produto);
-        $("#tabelaProduto tbody").append("<tr>");
-        $("#tabelaProduto tbody").append("<td style='text-align:center'>"+produto.Id+"</td>");
-        $("#tabelaProduto tbody").append("<td style='text-align:center'>"+produto.Nome+"</td>");
-        $("#tabelaProduto tbody").append("<td style='text-align:center'>"+produto.DataDeValidade+"</td>");
-        $("#tabelaProduto tbody").append("<td style='text-align:center'>"+produto.TaxaImposto+"</td>");
-        $("#tabelaProduto tbody").append("<td style='text-align:center'>"+produto.Quantidade+"</td>");
-        $("#tabelaProduto tbody").append("<td style='text-align:center'>"+produto.Preco+"</td>");
-        $("#tabelaProduto tbody").append("<td style='text-align:center'>"+produto.FuncionarioRes+"</td>");
-        $("#tabelaProduto tbody").append("<td style='text-align:center'><a href='editar-produto.html'><img src='img/editar-icone.png' alt='"+i+"'  class = 'btnEditar'></a></td>");
-        $("#tabelaProduto tbody").append("<td style='text-align:center'><a href=''><img src='img/deletar-icone.png' alt='"+i+"' class = 'btnExcluir'></a></td>");
-        $("#tabelaProduto tbody").append("</tr>");
+        variavel += "<tr>";
+        variavel += "<td style='text-align:center'>"+produto.Id+"</td>";
+        variavel += "<td style='text-align:center'>"+produto.Nome+"</td>";
+        variavel += "<td style='text-align:center'>"+produto.DataDeValidade+"</td>";
+        variavel += "<td style='text-align:center'>"+produto.TaxaImposto+"</td>";
+        variavel += "<td style='text-align:center'>"+produto.Quantidade+"</td>";
+        variavel += "<td style='text-align:center'>"+produto.Preco+"</td>";
+        variavel += "<td style='text-align:center'>"+produto.FuncionarioRes+"</td>";
+        variavel += "<td style='text-align:center'><a href='editar-produto.html'><img src='img/editar-icone.png' alt='"+i+"'  class = 'btnEditar'></a></td>";
+        variavel += "<td style='text-align:center' class='icone_excluir'><a href=''><img src='img/deletar-icone.png' alt='"+i+"' class = 'btnExcluir'></a></td>";
+        variavel += "</tr>";
+        $("#tabelaProduto tbody").append(variavel);
+        variavel = "";
     }
 }
-
+ 

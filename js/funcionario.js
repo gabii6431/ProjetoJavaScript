@@ -1,7 +1,8 @@
-class Produto{
+class Funcionario{
     id = 0;
     nomeFuncionario = ""
-    endereco  = 0
+    endereco = 0
+    cargo = 0
     salario = 0
 
     constructor(){
@@ -17,8 +18,8 @@ class Produto{
         return sessionStorage.getItem("idFuncionario");
     }
 
-    set nomeFuncionario(nome) {
-        this.nomenomeFuncionario = nomenomeFuncionario
+    set nomeFuncionario(nomeFuncionario) {
+        this.nomeFuncionario = nomeFuncionario
         sessionStorage.setItem("nomeFuncionario", this.nomeFuncionario);
     }
 
@@ -51,5 +52,5 @@ class Produto{
 
     get salario() {
         return sessionStorage.getItem("salario");
-    }    
+    }
 }

@@ -11,20 +11,29 @@ $(".tabelaVenda").on("click", ".btnEditar", function(){
     $("#txtCodigo").attr("readonly","readonly");
     $("#txtNome").focus();
 });
-
-$(".tabelaVenda").on("click", ".btnEditar",function(){
+/*
+$(".tabelaVenda").on("click", function(){
     alert("editar");
     Listar();
 });
+*/
  
-$(".tabelaVenda").on("click", ".btnExcluir",function(){
-    indice_selecionado = parseInt($(this).attr("alt"));
-    alert$($(this))
-    alert("excluir");
-    Excluir();
-    Listar();
-});
 
 $(document).ready(function(){
     Listar();
+
+    $(".icone_excluir").on("click",function(){
+        let btn = $(this);
+        let indice_selecionado;
+
+        indice_selecionado = parseInt(btn.parent().text()[0]);
+        let lista = sessionStorage.getItem("listaVendas");
+        let listaVendas =JSON.parse(lista);
+        let indexArray = listaVendas.map(function(e) { return (JSON.parse(e).Id); }).indexOf(indice_selecionado);
+        sessionStorage.setItem("indice_selecionado", indexArray);
+        btn.parent().remove();
+        Excluir();
+        Listar();
+    });
+
 });

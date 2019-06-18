@@ -13,7 +13,7 @@ $(".tabelaProduto").on("click", ".btnEditar", function(){
     $("#txtNome").focus();
 });
 
-$(".tabelaProduto").on("click", ".btnEditar",function(){
+/*$(".tabelaProduto").on("click", ".btnEditar",function(){
     alert("editar");
     Listar();
 });
@@ -23,8 +23,23 @@ $(".tabelaProduto").on("click", ".btnExcluir",function(){
     alert("excluir");
     Excluir();
     Listar();
-});
+});*/
 
 $(document).ready(function(){
     Listar();
+    $(".icone_excluir").on("click",function(){
+        let btn = $(this);
+        let indice_selecionado;
+
+        indice_selecionado = parseInt(btn.parent().text()[0]);
+        console.log(indice_selecionado);
+        let lista = sessionStorage.getItem("listaProdutos");
+        let listaProdutos =JSON.parse(lista);
+        let indexArray = listaProdutos.map(function(e) { return (JSON.parse(e).Id); }).indexOf(indice_selecionado);
+        sessionStorage.setItem("indice_selecionado", indexArray);
+        btn.parent().remove();
+        Excluir();
+        //Listar();
+    });
+
  });
