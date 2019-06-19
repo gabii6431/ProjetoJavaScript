@@ -105,7 +105,7 @@ function Listar(){
         variavel += "<td style='text-align:center'>"+produto.Quantidade+"</td>";
         variavel += "<td style='text-align:center'>"+produto.Preco+"</td>";
         variavel += "<td style='text-align:center'>"+produto.FuncionarioRes+"</td>";
-        variavel += "<td style='text-align:center'><a href='editar-produto.html'><img src='img/editar-icone.png' alt='"+i+"'  class = 'btnEditar'></a></td>";
+        variavel += "<td style='text-align:center' class='icone_editar'><a href='editar-produto.html'><img src='img/editar-icone.png' alt='"+i+"'  class = 'btnEditar'></a></td>";
         variavel += "<td style='text-align:center' class='icone_excluir'><a href=''><img src='img/deletar-icone.png' alt='"+i+"' class = 'btnExcluir'></a></td>";
         variavel += "</tr>";
         $("#tabelaProduto tbody").append(variavel);

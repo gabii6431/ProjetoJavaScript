@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
         <link rel="stylesheet" href="estilo/cadastro-venda.css" type="text/css"/>
-        <title>Cadastrar produto</title>
+        <title>Editar produto</title>
     </head>
 <body>
     <div id="area-cabecalho">
@@ -46,7 +46,7 @@
     </div>
     <div class="container">
         <div id="principal">
-            <h5>Cadastrar Produto</h5>
+            <h5>Editar Produto</h5>
             <div class="form-group col-md-2"></div>
             <form class="formulario-produto" method="post" action="processa-produto.php">                
                 <div class="form-row">
@@ -112,5 +112,10 @@
         <script src="bootstrap/js/popper.min.js"></script>
         <script src="bootstrap/js/bootstrap.min.js"></script>  
         <script src="js/estoque.js"></script>
+        <script>
+        $('#editarProduto').on('click',function(){
+            Editar();
+        });
+        </script>
 </body>
 </html>

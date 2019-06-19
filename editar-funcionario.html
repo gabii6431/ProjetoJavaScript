@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="estilo/cadastro-venda.css" type="text/css"/>
-    <title>Cadastro da Venda</title>
+    <title>Editar funcionário</title>
 </head>
 <body>
     <div id="area-cabecalho">
@@ -48,58 +48,60 @@
         <!-- Criar as linhas e colunas de acordo com necessidade -->
 
         <div id="principal">
-            <h5>Cadastrar Venda</h5>
+            <h5>Editar Funcionário</h5>
             <form class="formulario-produto" method="post">
                 
-            	<div class="form-row">
-            		<div class="form-group col-md-10 col-xl-10 col-sm-10 col-10 col-lg-10">
-              			<label for="nome">Nome do produto:</label>
-                		<input type="text" class="form-control" name="nomeProduto" id="nomeVenda" placeholder="">
-            		</div>
-            		<div class="form-group col-md-1"></div>
+                <div class="form-row">
+                    <div class="form-group col-md-10 col-xl-10 col-sm-10 col-10 col-lg-10">
+                        <label>Nome:</label>
+                        <input type="text" class="form-control" name="nomeFuncionarioEditar" id="nomeFuncionarioEditar" placeholder="">
+                    </div>
+                    <div class="form-group col-md-1"></div>
+                    <div class="form-group col-md-10 col-xl-10 col-sm-10 col-10 col-lg-10">
+                        <label>Endereço:</label>
+                        <input type="text" class="form-control" name="enderecoEditar" id="enderecoEditar" placeholder="">
+                    </div>
+                </div>
+
+                <div class="form-row">
                 <div class="form-group col-md-10 col-xl-10 col-sm-10 col-10 col-lg-10">
-                    <label for="catmat">Nome do funcionário:</label>
-                    <input type="text" class="form-control" name="nomeProduto" id="nomeFuncionario" placeholder="">
-                </div>
-            	</div>
-
-            	<div class="form-row">
-            		<div class="form-group col-md-10 col-xl-10 col-sm-10 col-10 col-lg-10">
-              			<label for="identificacao">Preço:</label>
-                		<input type="text" class="form-control" name="preco" id="preco" placeholder="">
-            		</div>
-            		<div class="form-group col-md-1"></div>
-                <div class="form-group col-md-10 col-xl-10 col-sm-10 col-10 col-lg-10">
-                    <label for="posicao">Quantidade vendida:</label>
-                    <input type="text" class="form-control" name="quantidadeVendida" id="quantidade" placeholder="">
+                    <label>Salário:</label>
+                    <input type="text" class="form-control" name="salarioEditar" id="salarioEditar" placeholder="">
                 </div>
                 </div>
 
-            <div class="row">
-                <br>
-            </div>
-
-            <div class="row">
-                <div class="col-xl-10">
-
+                <div class="row">
+                    <br>
                 </div>
-                <div class="col-xl-10" id="cor-botao">
-                    <input class="btn btn-primary" type="submit" value="Salvar" id = "salvarVenda">
-                </div>
-                <div class="col-xl-1">
 
+                <div class="row">
+                    <div class="col-xl-10">
+
+                    </div>
+                    <div class="col-xl-10" id="cor-botao">
+                        <input class="btn btn-primary" type="submit" value="Salvar" id="editarFuncionario">
+                    </div>
+                    <div class="col-xl-1">
+
+                    </div>
                 </div>
-            </div>
             </form>
-    	</div>
+        </div>
     </div>
     <script src="bootstrap/js/jquery-3.2.1.min.js"></script>
     <script src="bootstrap/js/popper.min.js"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
-    <script src="js/venda-estoque.js"></script>
+    <script src="js/cadastrar-funcionario.js"></script>
+    <script src="js/editar-funcionario.js"></script>
     <script>
-        $('#salvarVenda').on('click',function(){
-            Adicionar();
+        console.log(sessionStorage.getItem("nomeFuncionarioEditado"));
+        console.log(sessionStorage.getItem("enderecoEditado"));
+        console.log(sessionStorage.getItem("salarioEditado"));
+        document.getElementById("nomeFuncionarioEditar").value =  sessionStorage.getItem("nomeFuncionarioEditado");
+        document.getElementById("enderecoEditar").value =  sessionStorage.getItem("enderecoEditado");
+        document.getElementById("salarioEditar").value =  sessionStorage.getItem("salarioEditado");
+        $('#editarFuncionario').on('click',function(){
+            Editar();
         });
     </script>
 </body>
