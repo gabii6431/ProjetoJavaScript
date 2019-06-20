@@ -2,8 +2,8 @@ var id;
 var indice_selecionado;
 var listaFuncionarios;
 
-if(sessionStorage.getItem('primeiraExecucao1') == null){
-    sessionStorage.setItem('primeiraExecucao1', 'false');
+if(sessionStorage.getItem('primeiraExecucao2') == null){
+    sessionStorage.setItem('primeiraExecucao2', 'false');
     id = 0;
     indice_selecionado = -1;
     listaFuncionarios = sessionStorage.getItem("listaFuncionarios");
