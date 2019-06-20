@@ -50,22 +50,12 @@ function Adicionar(){
 }
  
 function Editar(){
-<<<<<<< HEAD
-    
-    listaVendas[indice_selecionado] = JSON.stringify({
-        Id : idVenda,
-        NomeVenda : document.getElementById('nomeVenda').value,
-        NomeFuncionario : document.getElementById('nomeFuncionario').value,
-        Quantidade : document.getElementById('quantidade').value,
-        Preco :  document.getElementById('preco').value
-=======
     venda = JSON.stringify({
         Id : parseInt(sessionStorage.getItem("IdVendaEditar")),
         NomeVenda : document.getElementById('nomeVendaEditar').value,
         NomeFuncionario : document.getElementById('nomeFuncionarioEditar').value,
         Quantidade : document.getElementById('quantidadeEditar').value,
         Preco :  document.getElementById('precoEditar').value
->>>>>>> master
     });
 
     let lista = sessionStorage.getItem("listaVendas");
