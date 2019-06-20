@@ -54,24 +54,24 @@
             	<div class="form-row">
             		<div class="form-group col-md-10 col-xl-10 col-sm-10 col-10 col-lg-10">
               			<label for="nome">Nome do produto:</label>
-                		<input type="text" class="form-control" name="nomeProduto" id="nomeVenda" placeholder="">
+                		<input type="text" class="form-control" name="nomeVendaEditar" id="nomeVendaEditar" placeholder="">
             		</div>
             		<div class="form-group col-md-1"></div>
                 <div class="form-group col-md-10 col-xl-10 col-sm-10 col-10 col-lg-10">
                     <label for="catmat">Nome do funcionário:</label>
-                    <input type="text" class="form-control" name="nomeProduto" id="nomeFuncionario" placeholder="">
+                    <input type="text" class="form-control" name="nomeFuncionarioEditar" id="nomeFuncionarioEditar" placeholder="">
                 </div>
             	</div>
 
             	<div class="form-row">
             		<div class="form-group col-md-10 col-xl-10 col-sm-10 col-10 col-lg-10">
               			<label for="identificacao">Preço:</label>
-                		<input type="text" class="form-control" name="preco" id="preco" placeholder="">
+                		<input type="text" class="form-control" name="precoEditar" id="precoEditar" placeholder="">
             		</div>
             		<div class="form-group col-md-1"></div>
                 <div class="form-group col-md-10 col-xl-10 col-sm-10 col-10 col-lg-10">
                     <label for="posicao">Quantidade vendida:</label>
-                    <input type="text" class="form-control" name="quantidadeVendida" id="quantidade" placeholder="">
+                    <input type="text" class="form-control" name="quantidadeEditar" id="quantidadeEditar" placeholder="">
                 </div>
                 </div>
 
@@ -98,8 +98,13 @@
     <script src="bootstrap/js/bootstrap.min.js"></script>
     <script src="js/venda-estoque.js"></script>
     <script>
+        document.getElementById("nomeVendaEditar").value =  sessionStorage.getItem("nomeVendaEditado");
+        document.getElementById("nomeFuncionarioEditar").value =  sessionStorage.getItem("nomeFuncionarioEditado");
+        document.getElementById("precoEditar").value =  sessionStorage.getItem("precoEditado");
+        document.getElementById("quantidadeEditar").value =  sessionStorage.getItem("quantidadeEditado");
         $('#editarVenda').on('click',function(){
             Editar();
+            Excluir();
         });
     </script>
 </body>

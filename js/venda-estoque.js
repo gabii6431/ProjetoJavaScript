@@ -37,33 +37,34 @@ function Adicionar(){
 }
  
 function Editar(){
-    listaVendas[indice_selecionado] = JSON.stringify({
-        Id : idVenda,
-        NomeVenda : document.getElementById('nomeVenda').value,
-        NomeFuncionario : document.getElementById('nomeFuncionario').value,
-        Quantidade : document.getElementById('quantidade').value,
-        Preco :  document.getElementById('preco').value
+    venda = JSON.stringify({
+        Id : parseInt(sessionStorage.getItem("IdVendaEditar")),
+        NomeVenda : document.getElementById('nomeVendaEditar').value,
+        NomeFuncionario : document.getElementById('nomeFuncionarioEditar').value,
+        Quantidade : document.getElementById('quantidadeEditar').value,
+        Preco :  document.getElementById('precoEditar').value
     });
-    sessionStorage.setItem("listaVendas", JSON.stringify(listaVendas));
-    let lista = sessionStorage.getItem("listaVendas");
-    let listaVendas =JSON.parse(lista);
 
+    let lista = sessionStorage.getItem("listaVendas");
+    let listaVendas = JSON.parse(lista);
     listaVendas.push(venda);
     sessionStorage.setItem("listaVendas", JSON.stringify(listaVendas));
-    alert("Informações editadas.")
+
+    alert("Informações editadas.");
+
     return true;
 }
  
 function Excluir(){
     indexArray = sessionStorage.getItem("indice_selecionado");
-    alert(indexArray);
     let lista = sessionStorage.getItem("listaVendas");
     let listaVendas =JSON.parse(lista);
     listaVendas.splice(indexArray, 1);
-    alert("Excluido");
-    alert(listaVendas);
     sessionStorage.setItem("listaVendas", JSON.stringify(listaVendas));
-    alert("Registro excluído.");
+    if(sessionStorage.getItem("verifica") == "true")
+    {
+        alert("Registro excluído.");
+    }
 }
 
 function Listar(){

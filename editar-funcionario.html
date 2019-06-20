@@ -92,16 +92,13 @@
     <script src="bootstrap/js/popper.min.js"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
     <script src="js/cadastrar-funcionario.js"></script>
-    <script src="js/editar-funcionario.js"></script>
     <script>
-        console.log(sessionStorage.getItem("nomeFuncionarioEditado"));
-        console.log(sessionStorage.getItem("enderecoEditado"));
-        console.log(sessionStorage.getItem("salarioEditado"));
         document.getElementById("nomeFuncionarioEditar").value =  sessionStorage.getItem("nomeFuncionarioEditado");
         document.getElementById("enderecoEditar").value =  sessionStorage.getItem("enderecoEditado");
         document.getElementById("salarioEditar").value =  sessionStorage.getItem("salarioEditado");
         $('#editarFuncionario').on('click',function(){
             Editar();
+            Excluir();
         });
     </script>
 </body>

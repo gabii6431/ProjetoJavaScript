@@ -33,7 +33,6 @@ $(document).ready(function(){
         sessionStorage.setItem("enderecoEditado", JSON.parse(listaFuncionarios[indexArray]).Endereco);
         sessionStorage.setItem("salarioEditado", JSON.parse(listaFuncionarios[indexArray]).Salario);
         btn.parent().remove(); 
-        Excluir();
     });
 
  });

@@ -113,9 +113,17 @@
         <script src="bootstrap/js/bootstrap.min.js"></script>  
         <script src="js/estoque.js"></script>
         <script>
-        $('#editarProduto').on('click',function(){
-            Editar();
-        });
+            document.getElementById("nomeEditar").value =  sessionStorage.getItem("nomeEditado");
+            document.getElementById("dataValidadeEditar").value =  sessionStorage.getItem("dataValidadeEditada");
+            document.getElementById("taxaEditar").value =  sessionStorage.getItem("taxaEditada");
+            document.getElementById("qtdEditar").value =  sessionStorage.getItem("qtdEditada");
+            document.getElementById("precoEditar").value =  sessionStorage.getItem("precoEditado");
+            document.getElementById("funcEditar").value =  sessionStorage.getItem("funcEditado");
+
+            $('#editarProduto').on('click',function(){
+                Editar();
+                Excluir();
+            });
         </script>
 </body>
 </html>
