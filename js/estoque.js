@@ -36,26 +36,24 @@ function Adicionar(){
     listaProdutos.push(produto);
     sessionStorage.setItem("listaProdutos", JSON.stringify(listaProdutos));
     alert("Registro adicionado.");
-    console.log(listaProdutos);
     return true;
 }
  
 function Editar(){
-    listaProdutos[indice_selecionado] = JSON.stringify({
-        Nome : document.getElementById('nomeProduto').value,
-        DataDeValidade : document.getElementById('dataValidadeProduto').value,
-        TaxaImposto : document.getElementById('taxaImpostoProduto').value,
-        Quantidade : document.getElementById('quantidade').value,
-        Preco :  document.getElementById('preco').value,
-        FuncionarioRes : document.getElementById('funcionarioProduto').value
+    produto = JSON.stringify({
+        Id : parseInt(sessionStorage.getItem("IdProdutoEditar")),
+        Nome : document.getElementById('nomeEditar').value,
+        DataDeValidade : document.getElementById('dataValidadeEditar').value,
+        TaxaImposto : document.getElementById('taxaEditar').value,
+        Quantidade : document.getElementById('qtdEditar').value,
+        Preco :  document.getElementById('precoEditar').value,
+        FuncionarioRes : document.getElementById('funcEditar').value
     });
-    sessionStorage.setItem("listaProdutos", JSON.stringify(listaProdutos));
     let lista = sessionStorage.getItem("listaProdutos");
-    let listaProdutos =JSON.parse(lista);
-
+    let listaProdutos = JSON.parse(lista);
     listaProdutos.push(produto);
     sessionStorage.setItem("listaProdutos", JSON.stringify(listaProdutos));
-    alert("Informações editadas.")
+    alert("Informações editadas.");
     return true;
 }
  
@@ -64,10 +62,11 @@ function Excluir(){
     let lista = sessionStorage.getItem("listaProdutos");
     let listaProdutos =JSON.parse(lista);
     listaProdutos.splice(indexArray, 1);
-    alert("Excluido");
-    alert(listaProdutos);
     sessionStorage.setItem("listaProdutos", JSON.stringify(listaProdutos));
-    alert("Registro excluído.");
+    if(sessionStorage.getItem("verifica") == "true")
+    {
+        alert("Registro excluído.");
+    }
 }
 
 function Listar(){
@@ -96,7 +95,6 @@ function Listar(){
     let variavel = "";
     for(var i in lista){
         var produto = JSON.parse(lista[i]);
-        console.log(produto);
         variavel += "<tr>";
         variavel += "<td style='text-align:center'>"+produto.Id+"</td>";
         variavel += "<td style='text-align:center'>"+produto.Nome+"</td>";
@@ -105,7 +103,7 @@ function Listar(){
         variavel += "<td style='text-align:center'>"+produto.Quantidade+"</td>";
         variavel += "<td style='text-align:center'>"+produto.Preco+"</td>";
         variavel += "<td style='text-align:center'>"+produto.FuncionarioRes+"</td>";
-        variavel += "<td style='text-align:center'><a href='editar-produto.html'><img src='img/editar-icone.png' alt='"+i+"'  class = 'btnEditar'></a></td>";
+        variavel += "<td style='text-align:center' class='icone_editar'><a href='editar-produto.html'><img src='img/editar-icone.png' alt='"+i+"'  class = 'btnEditar'></a></td>";
         variavel += "<td style='text-align:center' class='icone_excluir'><a href=''><img src='img/deletar-icone.png' alt='"+i+"' class = 'btnExcluir'></a></td>";
         variavel += "</tr>";
         $("#tabelaProduto tbody").append(variavel);

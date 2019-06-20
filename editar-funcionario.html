@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="estilo/cadastro-venda.css" type="text/css"/>
-    <title>Cadastro do funcionário</title>
+    <title>Editar funcionário</title>
 </head>
 <body>
     <div id="area-cabecalho">
@@ -48,25 +48,25 @@
         <!-- Criar as linhas e colunas de acordo com necessidade -->
 
         <div id="principal">
-            <h5>Cadastrar Funcionário</h5>
+            <h5>Editar Funcionário</h5>
             <form class="formulario-produto" method="post">
                 
                 <div class="form-row">
                     <div class="form-group col-md-10 col-xl-10 col-sm-10 col-10 col-lg-10">
                         <label>Nome:</label>
-                        <input type="text" class="form-control" name="nomeFuncionario" id="nomeFuncionario" placeholder="">
+                        <input type="text" class="form-control" name="nomeFuncionarioEditar" id="nomeFuncionarioEditar" placeholder="">
                     </div>
                     <div class="form-group col-md-1"></div>
                     <div class="form-group col-md-10 col-xl-10 col-sm-10 col-10 col-lg-10">
                         <label>Endereço:</label>
-                        <input type="text" class="form-control" name="endereco" id="endereco" placeholder="">
+                        <input type="text" class="form-control" name="enderecoEditar" id="enderecoEditar" placeholder="">
                     </div>
                 </div>
 
                 <div class="form-row">
                 <div class="form-group col-md-10 col-xl-10 col-sm-10 col-10 col-lg-10">
                     <label>Salário:</label>
-                    <input type="text" class="form-control" name="salario" id="salario" placeholder="">
+                    <input type="text" class="form-control" name="salarioEditar" id="salarioEditar" placeholder="">
                 </div>
                 </div>
 
@@ -79,7 +79,7 @@
 
                     </div>
                     <div class="col-xl-10" id="cor-botao">
-                        <input class="btn btn-primary" type="submit" value="Salvar" id="salvarFuncionario">
+                        <input class="btn btn-primary" type="submit" value="Salvar" id="editarFuncionario">
                     </div>
                     <div class="col-xl-1">
 
@@ -93,8 +93,12 @@
     <script src="bootstrap/js/bootstrap.min.js"></script>
     <script src="js/cadastrar-funcionario.js"></script>
     <script>
-        $('#salvarFuncionario').on('click',function(){
-            Adicionar();
+        document.getElementById("nomeFuncionarioEditar").value =  sessionStorage.getItem("nomeFuncionarioEditado");
+        document.getElementById("enderecoEditar").value =  sessionStorage.getItem("enderecoEditado");
+        document.getElementById("salarioEditar").value =  sessionStorage.getItem("salarioEditado");
+        $('#editarFuncionario').on('click',function(){
+            Editar();
+            Excluir();
         });
     </script>
 </body>

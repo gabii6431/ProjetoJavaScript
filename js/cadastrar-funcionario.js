@@ -20,12 +20,28 @@ if(sessionStorage.getItem('primeiraExecucao2') == null){
 
 function Adicionar(){
     var idFuncionario = parseInt(sessionStorage.getItem("idFuncionario"))+ 1 ;
-
+    var salario = parseInt(document.getElementById('salario').value);
+    var cargo;
+    if(salario >= 10000)
+    {
+        cargo = "Gerente";
+    }else if(salario >= 5000 && salario < 10000)
+    {
+        cargo = "Supervisor";
+    }
+    else if(salario >= 1000 && salario < 5000)
+    {
+        cargo = "Vendedor";
+    }
+    else
+    {
+        cargo = "Trainee";
+    }
     var funcionario = JSON.stringify({
         Id : idFuncionario,
         NomeFuncionario : document.getElementById('nomeFuncionario').value,
         Endereco : document.getElementById('endereco').value,
-        Cargo : document.getElementById('cargo').value,
+        Cargo : cargo,
         Salario :  document.getElementById('salario').value
     });
     sessionStorage.setItem("idFuncionario", idFuncionario);
@@ -38,33 +54,52 @@ function Adicionar(){
 }
  
 function Editar(){
-    listaFuncionarios[indice_selecionado] = JSON.stringify({
-        Id : idFuncionario,
-        NomeFuncionario : document.getElementById('nomeFuncionario').value,
-        NomeFuncionario : document.getElementById('nomeFuncionario').value,
-        Quantidade : document.getElementById('quantidade').value,
-        Preco :  document.getElementById('preco').value
+    var salario = parseInt(document.getElementById('salarioEditar').value);
+    var cargo;
+    if(salario >= 10000)
+    {
+        cargo = "Gerente";
+    }else if(salario >= 5000 && salario < 10000)
+    {
+        cargo = "Supervisor";
+    }
+    else if(salario >= 1000 && salario < 5000)
+    {
+        cargo = "Vendedor";
+    }
+    else
+    {
+        cargo = "Trainee";
+    }
+    var funcionario = JSON.stringify({
+        Id : parseInt(sessionStorage.getItem("IdFuncionarioEditar")),
+        NomeFuncionario : document.getElementById('nomeFuncionarioEditar').value,
+        Endereco : document.getElementById('enderecoEditar').value,
+        Cargo : cargo,
+        Salario :  document.getElementById('salarioEditar').value
     });
-    sessionStorage.setItem("listaFuncionarios", JSON.stringify(listaFuncionarios));
-    let lista = sessionStorage.getItem("listaFuncionarios");
-    let listaFuncionarios =JSON.parse(lista);
 
-    listaFuncionarios.push(Funcionario);
+    let lista = sessionStorage.getItem("listaFuncionarios");
+    let listaFuncionarios = JSON.parse(lista);
+    listaFuncionarios.push(funcionario);
+
+    console.log(listaFuncionarios);
     sessionStorage.setItem("listaFuncionarios", JSON.stringify(listaFuncionarios));
-    alert("Informações editadas.")
+    alert("Informações editadas.");
     return true;
 }
  
 function Excluir(){
     indexArray = sessionStorage.getItem("indice_selecionado");
-    alert(indexArray);
     let lista = sessionStorage.getItem("listaFuncionarios");
     let listaFuncionarios = JSON.parse(lista);
     listaFuncionarios.splice(indexArray, 1);
-    alert("Excluido");
-    alert(listaFuncionarios);
     sessionStorage.setItem("listaFuncionarios", JSON.stringify(listaFuncionarios));
-    alert("Registro excluído.");
+    if(sessionStorage.getItem("verifica") == "true")
+    {
+        alert("Registro excluído.");
+    }
+    
 }
 
 function Listar(){
@@ -98,7 +133,7 @@ function Listar(){
         variavel += "<td style='text-align:center'>"+funcionario.Endereco+"</td>";
         variavel += "<td style='text-align:center'>"+funcionario.Cargo+"</td>";
         variavel += "<td style='text-align:center'>"+funcionario.Salario+"</td>";
-        variavel += "<td style='text-align:center'><a href='editar-Funcionario.html'><img src='img/editar-icone.png' alt='"+i+"'  class = 'btnEditar'></a></td>";
+        variavel += "<td style='text-align:center' class='icone_editar'><a href='editar-funcionario.html'><img src='img/editar-icone.png' alt='"+i+"'  class = 'btnEditar'></a></td>";
         variavel += "<td style='text-align:center' class='icone_excluir'><a href=''><img src='img/deletar-icone.png' alt='"+i+"' class = 'btnExcluir'></a></td>";
         variavel += "</tr>";
         $("#tabelaFuncionario tbody").append(variavel);
