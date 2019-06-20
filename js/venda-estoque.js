@@ -1,9 +1,11 @@
 var id;
 var indice_selecionado;
 var listaVendas;
+var quantidadeProdutosVendidos = 0;
 if(sessionStorage.getItem('primeiraExecucao1') == null){
     sessionStorage.setItem('primeiraExecucao1', 'false');
     id = 0;
+    quantidadeProdutosVendidos = 0;
     indice_selecionado = -1;
     listaVendas = sessionStorage.getItem("listaVendas");
     listaVendas = JSON.parse(listaVendas);
@@ -11,6 +13,7 @@ if(sessionStorage.getItem('primeiraExecucao1') == null){
         listaVendas = [];
     }
     sessionStorage.setItem("idVenda", id);
+    sessionStorage.setItem("quantidadeProdutosVendidos", quantidadeProdutosVendidos);
     sessionStorage.setItem("indice_selecionado", indice_selecionado);
     sessionStorage.setItem("listaVendas",JSON.stringify(listaVendas));
 
@@ -31,18 +34,38 @@ function Adicionar(){
     let lista = sessionStorage.getItem("listaVendas");
     let listaVendas = JSON.parse(lista);
     listaVendas.push(venda);
+
+    let lista1 = sessionStorage.getItem("listaProdutos");
+    let listaProdutos =JSON.parse(lista1);
+    let indexArrayProduto = listaProdutos.map(function(e) { return(JSON.parse(e).Nome); }).indexOf(document.getElementById('nomeVenda').value);
+    alert(indexArrayProduto);
+
+    quantidadeProdutosVendidos = parseInt(sessionStorage.getItem("quantidadeProdutosVendidos", quantidadeProdutosVendidos)) + (parseInt(document.getElementById('quantidade').value) * document.getElementById('preco').value) - JSON.parse(listaProdutos[indexArrayProduto]).TaxaImposto;
+    sessionStorage.setItem("quantidadeProdutosVendidos", quantidadeProdutosVendidos);
+    alert(quantidadeProdutosVendidos);
+
     sessionStorage.setItem("listaVendas", JSON.stringify(listaVendas));
     alert("Registro adicionado.");
     return true;
 }
  
 function Editar(){
+<<<<<<< HEAD
+    
+    listaVendas[indice_selecionado] = JSON.stringify({
+        Id : idVenda,
+        NomeVenda : document.getElementById('nomeVenda').value,
+        NomeFuncionario : document.getElementById('nomeFuncionario').value,
+        Quantidade : document.getElementById('quantidade').value,
+        Preco :  document.getElementById('preco').value
+=======
     venda = JSON.stringify({
         Id : parseInt(sessionStorage.getItem("IdVendaEditar")),
         NomeVenda : document.getElementById('nomeVendaEditar').value,
         NomeFuncionario : document.getElementById('nomeFuncionarioEditar').value,
         Quantidade : document.getElementById('quantidadeEditar').value,
         Preco :  document.getElementById('precoEditar').value
+>>>>>>> master
     });
 
     let lista = sessionStorage.getItem("listaVendas");

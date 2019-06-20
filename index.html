@@ -23,23 +23,21 @@
                 <div class="col-12">
                     <div class="form-label-group">
                         <label for="inputUsuario" class="label-invisivel">Usuario</label>
-                        <input type="usuario" id="inputUsuario" name="usuario" class="form-control" placeholder="Usuário" autofocus>
+                        <input type="usuario" name="usuario" id = "usuario"class="form-control" placeholder="Usuário" autofocus>
                     </div>
                 </div>
             </div>
-
             <div class="row mb-3">
                 <div class="col-12">
                     <div class="form-label-group">
                         <label for="inputPassword" class="label-invisivel">Senha</label>
-                        <input type="password" name="senha" id="inputPassword" class="form-control" placeholder="Senha">
+                        <input type="password" name="senha" id="senha" class="form-control" placeholder="Senha">
                     </div>
                 </div>
             </div>
+            <div id="div-Usuario" style="color:red; visibility: hidden">Usuário ou senha inválido</div>
             <div class="row botoes-login">
-                <a href="home.html">
-                    <button class="btn botoes-login btn-primary btn-block" type="button">Entrar</button>
-                </a>
+                <button style="margin-right: 100px;" class="btn botoes-login btn-primary btn-block" type="button" id="btnLogin">Entrar</button>
             </div>
         </form>
     </div>
@@ -48,5 +46,6 @@
     <script src="bootstrap/js/jquery-3.2.1.min.js"></script>
     <script src="bootstrap/js/popper.min.js"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script src="js/login.js"></script>
 </body>
 </html>
