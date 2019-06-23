@@ -122,7 +122,11 @@
 
             $('#editarProduto').on('click',function(){
                 Editar();
-                Excluir();
+                if(parseInt(sessionStorage.getItem("verificaData")) == 1)
+                {
+                    Excluir();
+                }
+                
             });
         </script>
 </body>

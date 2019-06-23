@@ -1,10 +1,12 @@
 var id;
 var indice_selecionado;
 var listaProdutos;
+var quantidadePerda = 0;
 if(sessionStorage.getItem('primeiraExecucao') == null){
     sessionStorage.setItem('primeiraExecucao', 'false');
     id = 0;
     indice_selecionado = -1;
+    quantidadePerda = 0;
     listaProdutos = sessionStorage.getItem("listaProdutos");
     listaProdutos = JSON.parse(listaProdutos);
     if(listaProdutos == null) {
@@ -12,49 +14,144 @@ if(sessionStorage.getItem('primeiraExecucao') == null){
     }
     sessionStorage.setItem("idProduto", id);
     sessionStorage.setItem("indice_selecionado", indice_selecionado);
+    sessionStorage.setItem("quantidadePerda", quantidadePerda);
     sessionStorage.setItem("listaProdutos", JSON.stringify(listaProdutos));
 
 }
 
 
 function Adicionar(){
-    var idProduto = parseInt(sessionStorage.getItem("idProduto"))+ 1;
+    var verificaData = 1;
+    var now = new Date;
+    var dia = parseInt(now.getDate());
+    var mes = parseInt(now.getMonth() +1);
+    var ano = parseInt(now.getFullYear());
+    var dataValidade  = document.getElementById('dataValidadeProduto').value;
+    dataValidade = dataValidade.split("/");
 
-    var produto = JSON.stringify({
-        Id : idProduto,
-        Nome : document.getElementById('nomeProduto').value,
-        DataDeValidade : document.getElementById('dataValidadeProduto').value,
-        TaxaImposto : document.getElementById('taxaImpostoProduto').value,
-        Quantidade : document.getElementById('quantidade').value,
-        Preco :  document.getElementById('preco').value,
-        FuncionarioRes : document.getElementById('funcionarioProduto').value
-    });
-    sessionStorage.setItem("idProduto", idProduto);
-    let lista = sessionStorage.getItem("listaProdutos");
-    let listaProdutos =JSON.parse(lista);
+    if((dataValidade[0] <= 31 && dataValidade[0] > 0) && (dataValidade[1] >0 && dataValidade[1]<=12)){
+        if (ano < parseInt(dataValidade[2])){
+            verificaData = 1;
+        }
+        else if(ano == parseInt(dataValidade[2]))
+        {
+            if(mes < parseInt(dataValidade[1])){
+               verificaData = 1;
+            }
+            else if(mes == parseInt(dataValidade[1])){
+                if(dia < parseInt(dataValidade[0])){
+                    verificaData = 1;
+                }
+                else{
+                    verificaData = 0;
+                }
+            }
+            else{
+                verificaData = 0;
+            }
+        }
+        else{
+            verificaData = 0;
+        }
+    }
+    else{
+        verificaData = 0;
+    }
+    
 
-    listaProdutos.push(produto);
-    sessionStorage.setItem("listaProdutos", JSON.stringify(listaProdutos));
-    alert("Registro adicionado.");
-    return true;
+    if(verificaData == 1){
+        sessionStorage.setItem("verificaData", verificaData);
+        var idProduto = parseInt(sessionStorage.getItem("idProduto"))+ 1;
+
+        var produto = JSON.stringify({
+            Id : idProduto,
+            Nome : document.getElementById('nomeProduto').value,
+            DataDeValidade : document.getElementById('dataValidadeProduto').value,
+            TaxaImposto : document.getElementById('taxaImpostoProduto').value,
+            Quantidade : document.getElementById('quantidade').value,
+            Preco :  document.getElementById('preco').value,
+            FuncionarioRes : document.getElementById('funcionarioProduto').value
+        });
+        sessionStorage.setItem("idProduto", idProduto);
+        let lista = sessionStorage.getItem("listaProdutos");
+        let listaProdutos = JSON.parse(lista);
+    
+        listaProdutos.push(produto);
+        sessionStorage.setItem("listaProdutos", JSON.stringify(listaProdutos));
+        alert("Registro adicionado.");
+        return true;
+    }
+    else{
+        quantidadePerda = parseInt(sessionStorage.getItem("quantidadePerda")) + 1;
+        sessionStorage.setItem("quantidadePerda", quantidadePerda);
+        sessionStorage.setItem("verificaData", verificaData);
+        alert("Data de validade inválida");
+    }
+    
 }
  
 function Editar(){
-    produto = JSON.stringify({
-        Id : parseInt(sessionStorage.getItem("IdProdutoEditar")),
-        Nome : document.getElementById('nomeEditar').value,
-        DataDeValidade : document.getElementById('dataValidadeEditar').value,
-        TaxaImposto : document.getElementById('taxaEditar').value,
-        Quantidade : document.getElementById('qtdEditar').value,
-        Preco :  document.getElementById('precoEditar').value,
-        FuncionarioRes : document.getElementById('funcEditar').value
-    });
-    let lista = sessionStorage.getItem("listaProdutos");
-    let listaProdutos = JSON.parse(lista);
-    listaProdutos.push(produto);
-    sessionStorage.setItem("listaProdutos", JSON.stringify(listaProdutos));
-    alert("Informações editadas.");
-    return true;
+    var verificaData = 1;
+    var now = new Date;
+    var dia = parseInt(now.getDate());
+    var mes = parseInt(now.getMonth() +1);
+    var ano = parseInt(now.getFullYear());
+    var dataValidade  = document.getElementById('dataValidadeEditar').value;
+    dataValidade = dataValidade.split("/");
+
+    if((dataValidade[0] <= 31 && dataValidade[0] > 0) && (dataValidade[1] >0 && dataValidade[1]<=12)){
+        if (ano < parseInt(dataValidade[2])){
+            verificaData = 1;
+        }
+        else if(ano == parseInt(dataValidade[2]))
+        {
+            if(mes < parseInt(dataValidade[1])){
+               verificaData = 1;
+            }
+            else if(mes == parseInt(dataValidade[1])){
+                if(dia < parseInt(dataValidade[0])){
+                    verificaData = 1;
+                }
+                else{
+                    verificaData = 0;
+                }
+            }
+            else{
+                verificaData = 0;
+            }
+        }
+        else{
+            verificaData = 0;
+        }
+    }
+    else{
+        verificaData = 0;
+    }
+
+    if(verificaData == 1){
+        sessionStorage.setItem("verificaData", verificaData);
+        produto = JSON.stringify({
+            Id : parseInt(sessionStorage.getItem("IdProdutoEditar")),
+            Nome : document.getElementById('nomeEditar').value,
+            DataDeValidade : document.getElementById('dataValidadeEditar').value,
+            TaxaImposto : document.getElementById('taxaEditar').value,
+            Quantidade : document.getElementById('qtdEditar').value,
+            Preco :  document.getElementById('precoEditar').value,
+            FuncionarioRes : document.getElementById('funcEditar').value
+        });
+        let lista = sessionStorage.getItem("listaProdutos");
+        let listaProdutos = JSON.parse(lista);
+        listaProdutos.push(produto);
+        sessionStorage.setItem("listaProdutos", JSON.stringify(listaProdutos));
+        alert("Informações editadas.");
+        return true;
+    }
+    else{
+        quantidadePerda = parseInt(sessionStorage.getItem("quantidadePerda")) + 1;
+        sessionStorage.setItem("quantidadePerda", quantidadePerda);
+        sessionStorage.setItem("verificaData", verificaData);
+        alert("Data de validade inválida");
+    }
 }
  
 function Excluir(){

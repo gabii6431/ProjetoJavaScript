@@ -21,32 +21,86 @@ if(sessionStorage.getItem('primeiraExecucao1') == null){
 
 
 function Adicionar(){
-    var idVenda = parseInt(sessionStorage.getItem("idVenda"))+ 1 ;
-
-    var venda = JSON.stringify({
-        Id : idVenda,
-        NomeVenda : document.getElementById('nomeVenda').value,
-        NomeFuncionario : document.getElementById('nomeFuncionario').value,
-        Quantidade : document.getElementById('quantidade').value,
-        Preco :  document.getElementById('preco').value
-    });
-    sessionStorage.setItem("idVenda", idVenda);
-    let lista = sessionStorage.getItem("listaVendas");
-    let listaVendas = JSON.parse(lista);
-    listaVendas.push(venda);
-
+    let quantidadeProdutoAtualizada = 0;
     let lista1 = sessionStorage.getItem("listaProdutos");
     let listaProdutos =JSON.parse(lista1);
     let indexArrayProduto = listaProdutos.map(function(e) { return(JSON.parse(e).Nome); }).indexOf(document.getElementById('nomeVenda').value);
-    alert(indexArrayProduto);
+    
+    if(indexArrayProduto ==-1){
+        alert("Produto não cadastrado!");
+    }
+    else{
+        quantidadeProdutoAtualizada = parseInt(JSON.parse(listaProdutos[indexArrayProduto]).Quantidade) - parseInt(document.getElementById('quantidade').value);
 
-    quantidadeProdutosVendidos = parseInt(sessionStorage.getItem("quantidadeProdutosVendidos", quantidadeProdutosVendidos)) + (parseInt(document.getElementById('quantidade').value) * document.getElementById('preco').value) - JSON.parse(listaProdutos[indexArrayProduto]).TaxaImposto;
-    sessionStorage.setItem("quantidadeProdutosVendidos", quantidadeProdutosVendidos);
-    alert(quantidadeProdutosVendidos);
-
-    sessionStorage.setItem("listaVendas", JSON.stringify(listaVendas));
-    alert("Registro adicionado.");
-    return true;
+        if(quantidadeProdutoAtualizada < 0)
+        {
+            alert("Não é possível realizar a venda desse produto, quantidade inválida. Em estoque temos apenas: " + JSON.parse(listaProdutos[indexArrayProduto]).Quantidade);
+        }
+        else
+        {
+            if(quantidadeProdutoAtualizada == 0){
+            
+                var idVenda = parseInt(sessionStorage.getItem("idVenda"))+ 1 ;
+                
+                var venda = JSON.stringify({
+                    Id : idVenda,
+                    NomeVenda : document.getElementById('nomeVenda').value,
+                    NomeFuncionario : document.getElementById('nomeFuncionario').value,
+                    Quantidade : document.getElementById('quantidade').value,
+                    Preco :  document.getElementById('preco').value
+                });
+                sessionStorage.setItem("idVenda", idVenda);
+                let lista = sessionStorage.getItem("listaVendas");
+                let listaVendas = JSON.parse(lista);
+                listaVendas.push(venda);
+                //console.log("Perda:" + parseInt(sessionStorage.getItem("quantidadePerda")));
+                quantidadeProdutosVendidos = parseInt(sessionStorage.getItem("quantidadeProdutosVendidos", quantidadeProdutosVendidos)) + (parseInt(document.getElementById('quantidade').value) * document.getElementById('preco').value) - (JSON.parse(listaProdutos[indexArrayProduto]).TaxaImposto + parseInt(sessionStorage.getItem("quantidadePerda")));
+                sessionStorage.setItem("quantidadeProdutosVendidos", quantidadeProdutosVendidos);
+                sessionStorage.setItem("listaVendas", JSON.stringify(listaVendas));
+                listaProdutos.splice(indexArrayProduto, 1);
+                sessionStorage.setItem("listaProdutos", JSON.stringify(listaProdutos));
+                alert("Registro adicionado.");
+                return true;
+            }
+            else{
+                var idVenda = parseInt(sessionStorage.getItem("idVenda"))+ 1 ;
+                
+                var venda = JSON.stringify({
+                    Id : idVenda,
+                    NomeVenda : document.getElementById('nomeVenda').value,
+                    NomeFuncionario : document.getElementById('nomeFuncionario').value,
+                    Quantidade : document.getElementById('quantidade').value,
+                    Preco :  document.getElementById('preco').value
+                });
+                sessionStorage.setItem("idVenda", idVenda);
+                let lista = sessionStorage.getItem("listaVendas");
+                let listaVendas = JSON.parse(lista);
+                listaVendas.push(venda);
+                
+                var produto = JSON.stringify({
+                    Id : JSON.parse(listaProdutos[indexArrayProduto]).Id,
+                    Nome : JSON.parse(listaProdutos[indexArrayProduto]).Nome,
+                    DataDeValidade : JSON.parse(listaProdutos[indexArrayProduto]).DataDeValidade,
+                    TaxaImposto : JSON.parse(listaProdutos[indexArrayProduto]).TaxaImposto,
+                    Quantidade : quantidadeProdutoAtualizada,
+                    Preco :  JSON.parse(listaProdutos[indexArrayProduto]).Preco,
+                    FuncionarioRes : JSON.parse(listaProdutos[indexArrayProduto]).FuncionarioRes
+                });
+                listaProdutos.push(produto);
+                listaProdutos.splice(indexArrayProduto, 1);
+                sessionStorage.setItem("listaProdutos", JSON.stringify(listaProdutos));
+                //console.log("Perda:" + parseInt(sessionStorage.getItem("quantidadePerda")));
+                quantidadeProdutosVendidos = parseInt(sessionStorage.getItem("quantidadeProdutosVendidos", quantidadeProdutosVendidos)) + (parseInt(document.getElementById('quantidade').value) * document.getElementById('preco').value) - (JSON.parse(listaProdutos[indexArrayProduto]).TaxaImposto +parseInt(sessionStorage.getItem("quantidadePerda")));
+                sessionStorage.setItem("quantidadeProdutosVendidos", quantidadeProdutosVendidos);
+                sessionStorage.setItem("listaVendas", JSON.stringify(listaVendas));
+                alert("Registro adicionado.");
+                return true;
+            }
+            
+        }
+    }
+    
+  
 }
  
 function Editar(){
@@ -83,8 +137,7 @@ function Excluir(){
 function Listar(){
     let listaVendas = sessionStorage.getItem("listaVendas");
     let lista =JSON.parse(listaVendas);
-    
-    console.log("Lista: "+lista);
+
     $("#tabelaVenda").html("");
     $("#tabelaVenda").html(
         "<thead class='thead-dark'>"+
