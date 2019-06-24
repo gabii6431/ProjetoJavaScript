@@ -1,7 +1,29 @@
 $(document).ready(function(){
     Listar();
 
-    $(".icone_excluir").on("click",function(){
+    $(function(){
+        // event.preventDefault();
+        $('#tabelaVenda').tablesorter({
+        // Envia os cabeçalhos 
+            headers: { 
+                0: {
+                    sorter: false 
+                },
+                1: { 
+                    // Desativa a ordenação para essa coluna 
+                    sorter: false 
+                },
+                2: {
+                    sorter: false 
+                },
+                4: {
+                    sorter: false 
+                }
+            },
+        });
+    });
+
+    $(".icone_excluir").bind("click",function(){
         let btn = $(this);
         let indice_selecionado;
         let verifica = true;
@@ -18,7 +40,7 @@ $(document).ready(function(){
         Listar();
     });
 
-   $(".icone_editar").on("click",function(){
+   $(".icone_editar").bind("click",function(){
         let btn = $(this);
         let indice_selecionado;
         let verifica = false;
